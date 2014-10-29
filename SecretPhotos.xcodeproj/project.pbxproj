@@ -32,10 +32,6 @@
 		4DE4954D19DA0C930083197F /* SecretPhotosTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DE4954C19DA0C930083197F /* SecretPhotosTests.swift */; };
 		4DE4955719DA0CF50083197F /* SPCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DE4955619DA0CF50083197F /* SPCollectionViewController.swift */; };
 		4DE4955919DA0D170083197F /* SPCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DE4955819DA0D170083197F /* SPCollectionViewCell.swift */; };
-		4DE4956A19DA10A30083197F /* 1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 4DE4956619DA10A30083197F /* 1.jpg */; };
-		4DE4956B19DA10A30083197F /* 2.JPG in Resources */ = {isa = PBXBuildFile; fileRef = 4DE4956719DA10A30083197F /* 2.JPG */; };
-		4DE4956C19DA10A30083197F /* 3.JPG in Resources */ = {isa = PBXBuildFile; fileRef = 4DE4956819DA10A30083197F /* 3.JPG */; };
-		4DE4956D19DA10A30083197F /* 4.JPG in Resources */ = {isa = PBXBuildFile; fileRef = 4DE4956919DA10A30083197F /* 4.JPG */; };
 		4DE4956F19DA16460083197F /* SPPhotoDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DE4956E19DA16460083197F /* SPPhotoDetailViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -97,10 +93,6 @@
 		4DE4954C19DA0C930083197F /* SecretPhotosTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecretPhotosTests.swift; sourceTree = "<group>"; };
 		4DE4955619DA0CF50083197F /* SPCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SPCollectionViewController.swift; sourceTree = "<group>"; };
 		4DE4955819DA0D170083197F /* SPCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SPCollectionViewCell.swift; sourceTree = "<group>"; };
-		4DE4956619DA10A30083197F /* 1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 1.jpg; sourceTree = "<group>"; };
-		4DE4956719DA10A30083197F /* 2.JPG */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 2.JPG; sourceTree = "<group>"; };
-		4DE4956819DA10A30083197F /* 3.JPG */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 3.JPG; sourceTree = "<group>"; };
-		4DE4956919DA10A30083197F /* 4.JPG */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 4.JPG; sourceTree = "<group>"; };
 		4DE4956E19DA16460083197F /* SPPhotoDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SPPhotoDetailViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -188,7 +180,6 @@
 		4DE4953319DA0C930083197F /* SecretPhotos */ = {
 			isa = PBXGroup;
 			children = (
-				4DE4956519DA108D0083197F /* Images */,
 				4DE4953619DA0C930083197F /* AppDelegate.swift */,
 				4DE4955619DA0CF50083197F /* SPCollectionViewController.swift */,
 				4DE4955819DA0D170083197F /* SPCollectionViewCell.swift */,
@@ -225,17 +216,6 @@
 				4DE4954B19DA0C930083197F /* Info.plist */,
 			);
 			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		4DE4956519DA108D0083197F /* Images */ = {
-			isa = PBXGroup;
-			children = (
-				4DE4956619DA10A30083197F /* 1.jpg */,
-				4DE4956719DA10A30083197F /* 2.JPG */,
-				4DE4956819DA10A30083197F /* 3.JPG */,
-				4DE4956919DA10A30083197F /* 4.JPG */,
-			);
-			name = Images;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -318,12 +298,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4DE4956B19DA10A30083197F /* 2.JPG in Resources */,
 				4DE4953C19DA0C930083197F /* Main.storyboard in Resources */,
-				4DE4956A19DA10A30083197F /* 1.jpg in Resources */,
 				4D413DD319F854080075B083 /* CTAssetsPicker.xcassets in Resources */,
-				4DE4956C19DA10A30083197F /* 3.JPG in Resources */,
-				4DE4956D19DA10A30083197F /* 4.JPG in Resources */,
 				4DE4954119DA0C930083197F /* LaunchScreen.xib in Resources */,
 				4DE4953E19DA0C930083197F /* Images.xcassets in Resources */,
 			);
