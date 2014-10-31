@@ -33,6 +33,7 @@
 		4DE4955719DA0CF50083197F /* SPCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DE4955619DA0CF50083197F /* SPCollectionViewController.swift */; };
 		4DE4955919DA0D170083197F /* SPCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DE4955819DA0D170083197F /* SPCollectionViewCell.swift */; };
 		4DE4956F19DA16460083197F /* SPPhotoDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DE4956E19DA16460083197F /* SPPhotoDetailViewController.swift */; };
+		4DFF66231A044B0200617CC3 /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = 4DFF66221A044B0200617CC3 /* README.md */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -94,6 +95,7 @@
 		4DE4955619DA0CF50083197F /* SPCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SPCollectionViewController.swift; sourceTree = "<group>"; };
 		4DE4955819DA0D170083197F /* SPCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SPCollectionViewCell.swift; sourceTree = "<group>"; };
 		4DE4956E19DA16460083197F /* SPPhotoDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SPPhotoDetailViewController.swift; sourceTree = "<group>"; };
+		4DFF66221A044B0200617CC3 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -158,6 +160,7 @@
 		4DE4952819DA0C930083197F = {
 			isa = PBXGroup;
 			children = (
+				4DFF66221A044B0200617CC3 /* README.md */,
 				4D413DDF19F858D40075B083 /* SecretPhotos-Bridge.h */,
 				4D413DDC19F855080075B083 /* MediaPlayer.framework */,
 				4D413DDA19F854FC0075B083 /* AssetsLibrary.framework */,
@@ -321,6 +324,7 @@
 			files = (
 				4DE4955719DA0CF50083197F /* SPCollectionViewController.swift in Sources */,
 				4D413DD219F854080075B083 /* CTAssetsPageViewController.m in Sources */,
+				4DFF66231A044B0200617CC3 /* README.md in Sources */,
 				4D413DD619F854080075B083 /* CTAssetsViewCell.m in Sources */,
 				4D413DCF19F854080075B083 /* CTAssetScrollView.m in Sources */,
 				4D413DD919F854080075B083 /* NSDateFormatter+timeIntervalFormatter.m in Sources */,
