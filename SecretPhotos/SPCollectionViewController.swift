@@ -12,11 +12,12 @@ import Photos
 
 let reuseIdentifier = "PhotoCell"
 
-class SPCollectionViewController: UICollectionViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UICollectionViewDelegate {
+class SPCollectionViewController: UICollectionViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UICollectionViewDelegate, CTAssetsPickerControllerDelegate {
 
     
-    var allImages: [UIImage] = []
-    //var allImages: NSArray = NSArray()
+    //var allImages: [UIImage] = []
+    
+    var allImages: NSArray = NSArray()
     
     
     
@@ -28,22 +29,23 @@ class SPCollectionViewController: UICollectionViewController, UIImagePickerContr
         var actionFromSystemPhoto: UIAlertAction = UIAlertAction(title: "从系统相册选取", style: UIAlertActionStyle.Default){ (action: UIAlertAction!) -> Void in
             
             // show the ui image picker
-            var imageArray: [UIImage] = []
-            var imagePickerController = UIImagePickerController()
-            imagePickerController.sourceType = UIImagePickerControllerSourceType.PhotoLibrary
-            imagePickerController.allowsEditing = true
-            imagePickerController.delegate = self
-            
-            println(imagePickerController)
-            
-            self.presentViewController(imagePickerController, animated: true, completion: nil)
+//            var imageArray: [UIImage] = []
+//            var imagePickerController = UIImagePickerController()
+//            imagePickerController.sourceType = UIImagePickerControllerSourceType.PhotoLibrary
+//            imagePickerController.allowsEditing = true
+//            imagePickerController.delegate = self
+//            
+//            println(imagePickerController)
+//            
+//            self.presentViewController(imagePickerController, animated: true, completion: nil)
             
             
             
             // use CTAssetsPickerController
-//            var ctAssetsPickerController: CTAssetsPickerController = CTAssetsPickerController()
-//            ctAssetsPickerController.delegate = self
-//            self.presentViewController(ctAssetsPickerController, animated: true, completion: nil)
+            var ctAssetsPickerController: CTAssetsPickerController = CTAssetsPickerController()
+            ctAssetsPickerController.delegate = self
+            
+            self.presentViewController(ctAssetsPickerController, animated: true, completion: nil)
             
         }
         
@@ -56,30 +58,31 @@ class SPCollectionViewController: UICollectionViewController, UIImagePickerContr
     }
     
     // delegate
-    func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [NSObject : AnyObject]) {
-        
-        picker.dismissViewControllerAnimated(true, completion: nil)
-        var selectedImage: UIImage = info["UIImagePickerControllerOriginalImage"] as UIImage
-        allImages.append(selectedImage)
-        spCollectionView.reloadData()
-        
-        println(info.indexForKey(UIImagePickerControllerOriginalImage))
-        
-    }
-    
-//    func assetsPickerController(picker: CTAssetsPickerController!, didFinishPickingAssets assets: [AnyObject]!) {
+//    func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [NSObject : AnyObject]) {
 //        
 //        picker.dismissViewControllerAnimated(true, completion: nil)
-//        
-//        self.allImages = assets
-//        
-//        
+//        var selectedImage: UIImage = info["UIImagePickerControllerOriginalImage"] as UIImage
+//        allImages.append(selectedImage)
 //        spCollectionView.reloadData()
 //        
-//        println("--------")
-//        println(allImages)
+//        println(info.indexForKey(UIImagePickerControllerOriginalImage))
 //        
 //    }
+    
+    func assetsPickerController(picker: CTAssetsPickerController!, didFinishPickingAssets assets: [AnyObject]!) {
+        
+        picker.dismissViewControllerAnimated(true, completion: nil)
+        
+        //self.allImages = assets as [UIImage]
+        self.allImages = assets
+        
+        
+        spCollectionView.reloadData()
+        
+        println("--------")
+        println(allImages)
+        
+    }
     
     
     override func viewDidLoad() {
@@ -119,21 +122,7 @@ class SPCollectionViewController: UICollectionViewController, UIImagePickerContr
     }
     
     
-    
-    func getPhotoFromSystem() -> Array<UIImage> {
-        
-        var photoAsset: PHAsset = PHAsset()
-        var photoAssetCollection: PHAssetCollection = PHAssetCollection()
-        var result: PHFetchResult!
-        
-        result = PHAssetCollection.fetchAssetCollectionsWithType(PHAssetCollectionType.Album, subtype: PHAssetCollectionSubtype.AlbumRegular, options: nil)
-        
-        println(result)
-        
-        
-        return []
-    }
-    
+
     
 
     // MARK: UICollectionViewDataSource
@@ -151,11 +140,16 @@ class SPCollectionViewController: UICollectionViewController, UIImagePickerContr
         
         var cell: SPCollectionViewCell = collectionView.dequeueReusableCellWithReuseIdentifier(reuseIdentifier, forIndexPath: indexPath) as SPCollectionViewCell
         
-        cell.imagePhotoView.image = allImages[indexPath.row]
+        var assets: ALAsset = self.allImages[indexPath.row] as ALAsset
         
+    
+        println(assets)
         
-        println(allImages[0])
-        println(cell.imagePhotoView.image)
+        var img: UIImage = UIImage(CGImage: assets.thumbnail().takeRetainedValue())!
+        
+        println(img)
+        
+        cell.imagePhotoView.image = img
         
         return cell
     }
