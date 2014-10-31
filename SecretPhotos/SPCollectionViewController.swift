@@ -12,10 +12,11 @@ import Photos
 
 let reuseIdentifier = "PhotoCell"
 
-class SPCollectionViewController: UICollectionViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UICollectionViewDelegate, CTAssetsPickerControllerDelegate {
+class SPCollectionViewController: UICollectionViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UICollectionViewDelegate {
 
     
     var allImages: [UIImage] = []
+    //var allImages: NSArray = NSArray()
     
     
     
@@ -27,23 +28,22 @@ class SPCollectionViewController: UICollectionViewController, UIImagePickerContr
         var actionFromSystemPhoto: UIAlertAction = UIAlertAction(title: "从系统相册选取", style: UIAlertActionStyle.Default){ (action: UIAlertAction!) -> Void in
             
             // show the ui image picker
-//            var imageArray: [UIImage] = []
-//            var imagePickerController = UIImagePickerController()
-//            imagePickerController.sourceType = UIImagePickerControllerSourceType.PhotoLibrary
-//            imagePickerController.allowsEditing = true
-//            imagePickerController.delegate = self
-//            imagePickerController.showsCameraControls = false
-//            
-//            println(imagePickerController)
-//            
-//            self.presentViewController(imagePickerController, animated: true, completion: nil)
+            var imageArray: [UIImage] = []
+            var imagePickerController = UIImagePickerController()
+            imagePickerController.sourceType = UIImagePickerControllerSourceType.PhotoLibrary
+            imagePickerController.allowsEditing = true
+            imagePickerController.delegate = self
+            
+            println(imagePickerController)
+            
+            self.presentViewController(imagePickerController, animated: true, completion: nil)
             
             
             
             // use CTAssetsPickerController
-            var ctAssetsPickerController: CTAssetsPickerController = CTAssetsPickerController()
-            ctAssetsPickerController.delegate = self
-            self.presentViewController(ctAssetsPickerController, animated: true, completion: nil)
+//            var ctAssetsPickerController: CTAssetsPickerController = CTAssetsPickerController()
+//            ctAssetsPickerController.delegate = self
+//            self.presentViewController(ctAssetsPickerController, animated: true, completion: nil)
             
         }
         
@@ -67,18 +67,19 @@ class SPCollectionViewController: UICollectionViewController, UIImagePickerContr
         
     }
     
-    func assetsPickerController(picker: CTAssetsPickerController!, didFinishPickingAssets assets: [AnyObject]!) {
-        
-        picker.dismissViewControllerAnimated(true, completion: nil)
-        
-        self.allImages = assets as [UIImage]
-        
-        
-        spCollectionView.reloadData()
-        
-        //println(allImages)
-        
-    }
+//    func assetsPickerController(picker: CTAssetsPickerController!, didFinishPickingAssets assets: [AnyObject]!) {
+//        
+//        picker.dismissViewControllerAnimated(true, completion: nil)
+//        
+//        self.allImages = assets
+//        
+//        
+//        spCollectionView.reloadData()
+//        
+//        println("--------")
+//        println(allImages)
+//        
+//    }
     
     
     override func viewDidLoad() {
@@ -138,13 +139,11 @@ class SPCollectionViewController: UICollectionViewController, UIImagePickerContr
     // MARK: UICollectionViewDataSource
 
     override func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
-        //#warning Incomplete method implementation -- Return the number of sections
         return 1
     }
 
 
     override func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        //#warning Incomplete method implementation -- Return the number of items in the section
         return allImages.count
     }
 
@@ -153,6 +152,10 @@ class SPCollectionViewController: UICollectionViewController, UIImagePickerContr
         var cell: SPCollectionViewCell = collectionView.dequeueReusableCellWithReuseIdentifier(reuseIdentifier, forIndexPath: indexPath) as SPCollectionViewCell
         
         cell.imagePhotoView.image = allImages[indexPath.row]
+        
+        
+        println(allImages[0])
+        println(cell.imagePhotoView.image)
         
         return cell
     }
