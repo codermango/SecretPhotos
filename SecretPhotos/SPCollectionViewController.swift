@@ -100,26 +100,26 @@ class SPCollectionViewController: UICollectionViewController, UIImagePickerContr
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) {
-        println("segue---------")
-        if segue.identifier == "PhotoDetailSegue" {
-            
-            var selectedIndexPath: NSIndexPath = self.spCollectionView.indexPathsForSelectedItems()![0] as NSIndexPath
-            
-            
-            var cell: SPCollectionViewCell = self.spCollectionView.cellForItemAtIndexPath(selectedIndexPath) as SPCollectionViewCell
-            
-            var photoDetailController: SPPhotoDetailViewController = segue.destinationViewController as SPPhotoDetailViewController
-            
-            println(cell.imagePhotoView.image)
-            
-            var photoImage: UIImage = cell.imagePhotoView.image!
-            
-            photoDetailController.setValue(photoImage, forKey: "photoImage")
-            
-        }
-        
-    }
+//    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) {
+//        println("segue---------")
+//        if segue.identifier == "PhotoDetailSegue" {
+//            
+//            var selectedIndexPath: NSIndexPath = self.spCollectionView.indexPathsForSelectedItems()![0] as NSIndexPath
+//            
+//            
+//            var cell: SPCollectionViewCell = self.spCollectionView.cellForItemAtIndexPath(selectedIndexPath) as SPCollectionViewCell
+//            
+//            var photoDetailController: SPPhotoDetailViewController = segue.destinationViewController as SPPhotoDetailViewController
+//            
+//            println(cell.imagePhotoView.image)
+//            
+//            var photoImage: UIImage = cell.imagePhotoView.image!
+//            
+//            photoDetailController.setValue(photoImage, forKey: "photoImage")
+//            
+//        }
+//        
+//    }
     
     
 
@@ -155,7 +155,18 @@ class SPCollectionViewController: UICollectionViewController, UIImagePickerContr
     }
 
     
-    
+    override func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
+        
+        var ctAssetsPageViewController: CTAssetsPageViewController = CTAssetsPageViewController(assets: self.allImages)
+        ctAssetsPageViewController.pageIndex = indexPath.row
+        self.navigationController?.pushViewController(ctAssetsPageViewController, animated: true)
+        
+        
+//        CTAssetsPageViewController *vc = [[CTAssetsPageViewController alloc] initWithAssets:self.assets];
+//        vc.pageIndex = indexPath.row;
+//        
+//        [self.navigationController pushViewController:vc animated:YES];
+    }
     
     
     // MARK: UICollectionViewDelegate

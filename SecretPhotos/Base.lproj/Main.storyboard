@@ -32,7 +32,6 @@
                                 </view>
                                 <connections>
                                     <outlet property="imagePhotoView" destination="D0P-IH-B2o" id="gNY-jq-HZa"/>
-                                    <segue destination="B2n-Pk-YXs" kind="push" identifier="PhotoDetailSegue" id="B2k-BK-ykI"/>
                                 </connections>
                             </collectionViewCell>
                         </cells>

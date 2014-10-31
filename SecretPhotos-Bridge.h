@@ -7,3 +7,4 @@
 //
 
 #import "CTAssetsPickerController.h"
+#import "CTAssetsPageViewController.h"
